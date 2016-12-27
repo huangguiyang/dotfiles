@@ -98,11 +98,9 @@
 ;; F5 to locate this file
 (defun my:find-dotfile ()
   (interactive)
-  (let ((files
-         (remove-if-not 'file-exists-p
-                        (list "~/Downloads/dotfiles/init.el"
-                              "~/Documents/dotfiles/init.el"))))
-    (if (car files) (find-file (car files)))))
+  (let ((files '("~/Downloads/dotfiles/init.el"
+                 "~/Documents/dotfiles/init.el")))
+    (find-file (car (remove-if-not 'file-exists-p files)))))
 (global-set-key (kbd "<f5>") 'my:find-dotfile)
 
 
