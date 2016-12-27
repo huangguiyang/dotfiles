@@ -124,21 +124,22 @@
 
 (defun my:company-face ()
   (custom-set-faces
-   '(company-scrollbar-bg ((t (:inherit company-tooltip :background "White"))))
-   '(company-scrollbar-fg ((t (:background "darkGrey"))))
-   '(company-tooltip-common ((t (:background "ghost white" :foreground "red"))))
-   '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :background "SkyBlue1" :foreground "red"))))
-   '(company-tooltip-annotation ((t (:background "ghost white" :foreground "Black"))))
-   '(company-tooltip-annotation-selection ((t (:inherit company-tooltip-selection :background "SkyBlue1" :foreground "red"))))
-   '(company-tooltip ((t (:background "ghost white" :foreground "Black"))))
-   '(company-tooltip-selection ((t (:inherit company-tooltip :background "SkyBlue1"))))))
+   ;; company-scrollbar-bg
+   ;; company-scrollbar-fg
+   ;; company-tooltip-common
+   ;; company-tooltip-common-selection
+   ;; company-tooltip-annotation
+   '(company-tooltip-annotation-selection ((t (:inherit company-tooltip-selection))))
+   ;; company-tooltip
+   ;; company-tooltip-selection
+   ))
 
 (defun my:setup-company ()
   (setq company-minimum-prefix-length 1)
   (global-company-mode t)
   (global-set-key (kbd "C-c y") 'company-yasnippet)
   ;; custom face
-  )
+  (my:company-face))
 
 ;; replace the `completion-at-point' and `complete-symbol' bindings in
 ;; irony-mode's buffers by irony-mode's function
@@ -169,7 +170,6 @@
   (require 'whitespace)
   (setq whitespace-style '(face lines-tail))
   (global-whitespace-mode t))
-(my:setup-column-marker)
 
 (defun my:setup-email ()
   (setq send-mail-function 'smtpmail-send-it
@@ -178,7 +178,6 @@
         smtpmail-smtp-service 465
         user-full-name "mario"
         user-mail-address "mohu3g@163.com"))
-(my:setup-email)
 ;; ~/.authinfo
 ;; machine <smtp server> login <emial address> password <password>
 
@@ -187,40 +186,28 @@
                              (eval-after-load 'company
                                '(add-to-list 'company-backends 'company-lua)))))
 
-(defun my:setup-ycmd ()
+(defun my:setup-company-ycmd ()
   (require 'company-ycmd)
   (company-ycmd-setup))
 
 ;; packages install
 
-(defun my:install (package)
+(defun my:install (package &optional setup)
   (unless (package-installed-p package)
-    (package-install package)))
-
-(defun my:setup (package setup)
-  (if (package-installed-p package) (funcall setup)))
+    (package-install package))
+  (if setup (funcall setup)))
 
 (defun my:install-packages ()
   (interactive)
-  (my:install 'company)
-  (my:install 'solarized-theme)
-  (my:install 'exec-path-from-shell)
-  (my:install 'yasnippet)
-  (my:install 'irony)
+  (my:install 'company 'my:setup-company)
+  (my:install 'solarized-theme 'my:setup-solarized)
+  (my:install 'exec-path-from-shell 'my:setup-exec-path-from-shell)
+  (my:install 'yasnippet 'my:setup-yasnippet)
+  (my:install 'irony 'my:setup-irony)
   (my:install 'company-irony-c-headers)
-  (my:install 'ggtags)
-  (my:install 'lua-mode))
-
-(defun my:setup-packages ()
-  (interactive)
-  (my:setup 'company 'my:setup-company)
-  (my:setup 'solarized-theme 'my:setup-solarized)
-  (my:setup 'ggtags 'my:setup-ggtags)
-  (my:setup 'yasnippet 'my:setup-yasnippet)
-  (my:setup 'exec-path-from-shell 'my:setup-exec-path-from-shell)
-  (my:setup 'irony 'my:setup-irony)
-  (my:setup 'company-ycmd 'my:setup-ycmd)
-  (my:setup 'lua-mode 'my:setup-lua))
+  (my:install 'ggtags 'my:setup-ggtags)
+  (my:install 'lua-mode 'my:setup-lua)
+  (my:install 'company-ycmd 'my:setup-company-ycmd))
 
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -230,5 +217,7 @@
    t)
   (package-initialize)
   (my:install-packages)
-  (my:setup-packages)
   (my:setup-face))
+
+(my:setup-email)
+(my:setup-column-marker)
