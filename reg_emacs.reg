@@ -1,0 +1,14 @@
+Windows Registry Editor Version 5.00
+
+; command 和 HOME 值需要根据程序的实际位置修改
+; HOME 用于自定义配置文件 _emacs 的路径
+; 要取消注册表项只需添加 - 号即可
+
+[HKEY_CLASSES_ROOT\*\Shell\Emacs]
+""="Edit with Emacs"
+
+[HKEY_CLASSES_ROOT\*\Shell\Emacs\command]
+""="D:\\emacs-24.5\\bin\\runemacs.exe %0"
+
+[HKEY_CURRENT_USER\Software\GNU\Emacs]
+"HOME"="D:\\configs"
