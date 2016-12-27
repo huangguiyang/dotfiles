@@ -96,11 +96,14 @@
   (if-no-window-system))
 
 ;; F5 to locate this file
-(global-set-key (kbd "<f5>") (lambda ()
-                               (interactive)
-                               (if (file-exists-p "~/Documents/configs/init.el")
-                                   (find-file "~/Documents/configs/init.el")
-                                 (find-file "~/Downloads/configs/init.el"))))
+(defun my:find-dotfile ()
+  (interactive)
+  (let ((files
+         (remove-if-not 'file-exists-p
+                        (list "~/Downloads/dotfiles/init.el"
+                              "~/Documents/dotfiles/init.el"))))
+    (if (car files) (find-file (car files)))))
+(global-set-key (kbd "<f5>") 'my:find-dotfile)
 
 
 ;; packages setup
