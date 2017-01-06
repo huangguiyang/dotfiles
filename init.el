@@ -69,10 +69,10 @@
 (global-set-key (kbd "C-/") 'my:comment)
 
 ;; c mode hook
-(add-hook 'c-mode-hook
-          (lambda ()
-            (setq comment-start "// ")
-            (setq comment-end "")))
+;; (add-hook 'c-mode-hook
+;;           (lambda ()
+;;             (setq comment-start "// ")
+;;             (setq comment-end "")))
 
 ;; key bindings for Mac
 (when (eq system-type 'darwin)
