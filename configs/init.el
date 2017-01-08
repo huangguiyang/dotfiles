@@ -6,5 +6,6 @@
 (require 'init-ggtags)
 (require 'init-theme)
 (require 'init-email)
+(require 'init-logo)
 
 (provide 'init)
