@@ -5,5 +5,6 @@
 (require 'init-company)
 (require 'init-ggtags)
 (require 'init-theme)
+(require 'init-email)
 
 (provide 'init)

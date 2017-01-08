@@ -8,6 +8,8 @@
 (add-hook 'c-mode-hook
           '(lambda ()
              (require 'company-c-headers)
-             (add-to-list 'company-backends '(company-clang company-c-headers company-yasnippet))))
+             (add-to-list (make-local-variable 'company-backends)
+                          '(company-c-headers company-clang company-yasnippet))
+             ))
 
 (provide 'init-company)
