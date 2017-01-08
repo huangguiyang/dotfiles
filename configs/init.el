@@ -7,5 +7,6 @@
 (require 'init-theme)
 (require 'init-email)
 (require 'init-logo)
+(require 'init-whitespace)
 
 (provide 'init)
