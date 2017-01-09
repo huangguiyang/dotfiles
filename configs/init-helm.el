@@ -16,6 +16,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-c h o") 'helm-occur)
 
 ;; helm-gtags
 (package-install 'helm-gtags)
