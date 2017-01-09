@@ -8,5 +8,6 @@
 (require 'init-email)
 (require 'init-logo)
 (require 'init-whitespace)
+(require 'init-helm)
 
 (provide 'init)
