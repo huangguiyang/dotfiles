@@ -18,7 +18,7 @@
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-s") 'helm-occur)
 
-(dolist (f '("GPATH" "GTAGS" "GRTAGS" ".clang-format" ".depend"))
+(dolist (f '("GPATH" "GTAGS" "GRTAGS" ".*"))
   (add-to-list 'helm-grep-ignored-files f))
 
 (provide 'init-helm)
