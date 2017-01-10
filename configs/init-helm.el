@@ -5,6 +5,7 @@
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
+(define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
 
 (setq helm-autoresize-max-height 0)
 (setq helm-autoresize-min-height 20)

@@ -8,7 +8,8 @@
 (add-hook 'c-mode-hook
           '(lambda ()
              (require 'company-c-headers)
-             (add-to-list 'company-backends 'company-c-headers)
+             (add-to-list 'company-backends
+                          '(company-c-headers company-clang company-yasnippet))
              ))
 
 (provide 'init-company)
