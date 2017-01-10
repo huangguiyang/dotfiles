@@ -21,4 +21,7 @@
 (dolist (f '("GPATH" "GTAGS" "GRTAGS" ".*"))
   (add-to-list 'helm-grep-ignored-files f))
 
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match t)
+
 (provide 'init-helm)
