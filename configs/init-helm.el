@@ -24,4 +24,6 @@
 (setq helm-buffers-fuzzy-matching t
       helm-recentf-fuzzy-match t)
 
+(global-set-key (kbd "<f1>") 'helm-recentf)
+
 (provide 'init-helm)
