@@ -25,5 +25,6 @@
       helm-recentf-fuzzy-match t)
 
 (global-set-key (kbd "<f1>") 'helm-recentf)
+(global-set-key (kbd "C-.") 'helm-recentf)
 
 (provide 'init-helm)
