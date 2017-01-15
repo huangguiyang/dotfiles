@@ -1,6 +1,7 @@
 
 (require 'init-basic)
-(require 'init-exec-path-from-shell)
+(when (eq system-type 'darwin)
+  (require 'init-exec-path-from-shell))
 (require 'init-yasnippet)
 (require 'init-company)
 (require 'init-theme)

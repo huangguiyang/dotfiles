@@ -16,7 +16,8 @@
 (tool-bar-mode -1)
 (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'linum nil :height 120)
-(set-frame-size (selected-frame) 90 50)
+(unless (eq system-type 'windows-nt)
+  (set-frame-size (selected-frame) 90 50))
 
 ;; another comment
 (defun my:comment ()
