@@ -1,4 +1,7 @@
 
+(when (< emacs-major-version 25)
+  (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no"))
+
 (global-linum-mode t)
 (setq column-number-mode t)
 (setq-default line-spacing 5)
@@ -16,7 +19,7 @@
 (tool-bar-mode -1)
 (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'linum nil :height 120)
-(unless (eq system-type 'windows-nt)
+(when (eq system-type 'darwin)
   (set-frame-size (selected-frame) 90 50))
 
 ;; another comment
@@ -70,8 +73,8 @@
 (require 'package)
 (add-to-list
    'package-archives
-   ;; '("melpa" . "http://melpa.org/packages/")
-   '("melpa" . "http://elpa.emacs-china.org/melpa/")
+   '("melpa" . "http://melpa.org/packages/")
+   ;; '("melpa" . "http://elpa.emacs-china.org/melpa/")
    t)
 (package-initialize)
 
