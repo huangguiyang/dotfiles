@@ -5,7 +5,7 @@
   (setq fancy-splash-image file))
 
 ;; http://llvm.org/img/DragonMedium.png
-(unless (eq system-type 'windows-nt)
+(when (eq system-type 'darwin)
   (set-splash-image-with-url "http://llvm.org/img/DragonMedium.png"
                              "~/.emacs.d/dragon.png"))
 
