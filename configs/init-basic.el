@@ -4,7 +4,7 @@
 
 (global-linum-mode t)
 (setq column-number-mode t)
-(setq-default line-spacing 5)
+(setq-default line-spacing 8)
 (setq-default indent-tabs-mode nil)
 (show-paren-mode t)
 (global-auto-revert-mode t)
