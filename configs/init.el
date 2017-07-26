@@ -6,7 +6,7 @@
 (require 'init-company)
 (require 'init-theme)
 (require 'init-email)
-(require 'init-logo)
+;; (require 'init-logo)
 (require 'init-whitespace)
 (require 'init-helm)
 (require 'init-helm-gtags)
