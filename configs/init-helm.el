@@ -17,7 +17,6 @@
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-c s") 'helm-occur)
-(global-set-key (kbd "C-s") 'helm-occur)
 
 (dolist (f '("GPATH" "GTAGS" "GRTAGS" ".*"))
   (add-to-list 'helm-grep-ignored-files f))
