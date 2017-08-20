@@ -69,13 +69,4 @@
     (find-file (car (remove-if-not 'file-exists-p files)))))
 (global-set-key (kbd "<f5>") 'my:find-dotfile)
 
-;; package
-(require 'package)
-(add-to-list
-   'package-archives
-   '("melpa" . "http://melpa.org/packages/")
-   ;; '("melpa" . "http://elpa.emacs-china.org/melpa/")
-   t)
-(package-initialize)
-
 (provide 'init-basic)
