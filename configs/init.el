@@ -1,5 +1,6 @@
 
 (require 'init-basic)
+(require 'init-c-mode)
 (when (eq system-type 'darwin)
   (require 'init-exec-path-from-shell))
 (require 'init-yasnippet)

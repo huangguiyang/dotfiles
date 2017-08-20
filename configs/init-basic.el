@@ -21,6 +21,9 @@
 (set-face-attribute 'linum nil :height 120)
 (when (eq system-type 'darwin)
   (set-frame-size (selected-frame) 90 50))
+(when (eq system-type 'windows-nt)
+  (set-face-attribute 'default nil :height 100)
+  (set-face-attribute 'linum nil :height 100))
 
 ;; another comment
 (defun my:comment ()
@@ -65,9 +68,6 @@
   (let ((files '("~/.emacs.d/init.el")))
     (find-file (car (remove-if-not 'file-exists-p files)))))
 (global-set-key (kbd "<f5>") 'my:find-dotfile)
-
-(setq c-basic-offset 4)
-(setq c-label-minimum-indentation 0)
 
 ;; package
 (require 'package)
