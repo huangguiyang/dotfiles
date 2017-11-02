@@ -62,11 +62,17 @@
 ;; RET
 (global-set-key (kbd "RET") 'newline-and-indent)
 
-;; F5 to locate this file
+;; F12 to locate this file
 (defun my:find-dotfile ()
   (interactive)
   (let ((files '("~/.emacs.d/init.el")))
-    (find-file (car (remove-if-not 'file-exists-p files)))))
-(global-set-key (kbd "<f5>") 'my:find-dotfile)
+    (find-file (car (cl-remove-if-not 'file-exists-p files)))))
+(global-set-key (kbd "<f12>") 'my:find-dotfile)
+
+;; F5 to make
+(defun my:make ()
+  (interactive)
+  (compile "make"))
+(global-set-key (kbd "<f5>") 'my:make)
 
 (provide 'init-basic)
