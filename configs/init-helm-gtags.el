@@ -20,4 +20,10 @@
   (define-key helm-gtags-mode-map (kbd "C-g a") 'helm-gtags-tags-in-this-function)
   )
 
+(defun always-entire-update ()
+  (setq current-prefix-arg '(4))
+  (call-interactively 'helm-gtags-update-tags))
+(add-hook 'helm-gtags-mode-hook
+          (lambda () (add-hook 'after-save-hook 'always-entire-update)))
+
 (provide 'init-helm-gtags)
