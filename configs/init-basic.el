@@ -23,7 +23,7 @@
   (set-frame-size (selected-frame) 90 50))
 (when (eq system-type 'windows-nt)
   (set-face-attribute 'default nil :height 140)
-  (set-face-attribute 'linum nil :height 140)
+  (set-face-attribute 'linum nil :height 120)
   (set-default-font "Consolas"))
 
 ;; another comment
