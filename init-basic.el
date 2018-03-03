@@ -22,9 +22,10 @@
 (when (eq system-type 'darwin)
   (set-frame-size (selected-frame) 90 50))
 (when (eq system-type 'windows-nt)
-  (set-face-attribute 'default nil :height 120)
+  (set-face-attribute 'default nil :height 130)
   (set-face-attribute 'linum nil :height 120)
-  (set-default-font "Consolas"))
+  (set-default-font "Consolas")
+  (set-frame-size (selected-frame) 90 40))
 
 ;; another comment
 (defun my:comment ()
