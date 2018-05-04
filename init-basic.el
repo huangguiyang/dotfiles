@@ -15,7 +15,6 @@
                               (interactive)
                               (end-of-line)
                               (newline-and-indent)))
-(global-set-key (kbd "C-m") 'set-mark-command)
 (if window-system
     (tool-bar-mode -1))
 (set-face-attribute 'default nil :height 140)
