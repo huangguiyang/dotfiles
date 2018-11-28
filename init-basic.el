@@ -12,11 +12,11 @@
 
 ;; vi style key binding :-)
 (global-set-key (kbd "C-o") (lambda ()
-			      (interactive)
-			      (end-of-line)
-			      (newline)
-			      (indent-according-to-mode)))
-(tool-bar-mode -1)
+                              (interactive)
+                              (end-of-line)
+                              (newline-and-indent)))
+(if window-system
+    (tool-bar-mode -1))
 (set-face-attribute 'default nil :height 140)
 (set-face-attribute 'linum nil :height 120)
 (when (eq system-type 'darwin)
@@ -70,11 +70,5 @@
   (let ((files '("~/.emacs.d/init.el")))
     (find-file (car (cl-remove-if-not 'file-exists-p files)))))
 (global-set-key (kbd "<f12>") 'my:find-dotfile)
-
-;; F5 to make
-(defun my:make ()
-  (interactive)
-  (compile "make"))
-(global-set-key (kbd "<f5>") 'my:make)
 
 (provide 'init-basic)
